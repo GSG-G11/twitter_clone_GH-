@@ -26,8 +26,14 @@ app.post('/reply', (request, response, next) => {
   res.redirect(307, '/');
 });
 
-app.listen(app.get('port'), () => {
-  console.log('Server is running successfully @ http://localhost:5000');
+app.post('/tweet', (request, response, next) => {
+  const user_id = request.body.id;
+  const reply = request.body.reply;
+  postTweet(reply, user_id)
+    .then((result) => result.rows)
+    .catch((err) => err);
+  // Redirect to error page
+  res.redirect(307, '/');
 });
 
 module.export = app;

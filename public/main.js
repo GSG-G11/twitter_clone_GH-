@@ -9,21 +9,12 @@ const showReplyForm = () => {
   }
 };
 
-const addReply = () => {
-  const replyMessage = document.querySelector('#reply_message').value;
-  fetch('/reply', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id: 1, reply: replyMessage }),
-  });
-};
-
-const addReply = () => {
-  const replyMessage = document.querySelector('#reply_message').value;
-  fetch('/reply', {
+const addReply = (action) => {
+  const path = action;
+  if (action === 'reply') {
+    const replyMessage = document.querySelector('#reply_message').value;
+  }
+  fetch(`/${path}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
