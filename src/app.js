@@ -19,9 +19,11 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.post('/reply', (request, response, next) => {
   const user_id = request.body.id;
   const reply = request.body.reply;
-  postTweet(reply, user_id)
-    .then((result) => console.log(result.rows))
-    .catch((err) => console.log(err));
+  postComment(reply, user_id)
+    .then((result) => result.rows)
+    .catch((err) => err);
+  // Redirect to error page
+  res.redirect(307, '/');
 });
 
 app.listen(app.get('port'), () => {

@@ -20,3 +20,15 @@ const addReply = () => {
     body: JSON.stringify({ id: 1, reply: replyMessage }),
   });
 };
+
+const addReply = () => {
+  const replyMessage = document.querySelector('#reply_message').value;
+  fetch('/reply', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id: 1, reply: replyMessage }),
+  });
+};
