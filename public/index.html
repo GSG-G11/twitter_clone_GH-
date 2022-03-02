@@ -74,13 +74,12 @@
             <form>
                 <div class="tweetbox__input">
                     <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
-                    <input type="text" placeholder="What's happening?" />
+                    <input type="text" placeholder="What's happening?" class="tweet_message" />
                 </div>
-                <button class="tweetBox__tweetButton" onclick="addReply('tweet')">Tweet</button>
+                <button class="tweetBox__tweetButton" onclick="addTweet()">Tweet</button>
             </form>
         </div>
         <!-- tweetbox ends -->
-
         <!-- post starts -->
         <div class="post">
             <div class="post__avatar">
@@ -91,15 +90,15 @@
                 <div class="post__header">
                     <div class="post__headerText">
                         <div id="user__info">
-                            <h2 id="name"> Somanath Goudar</h2>
+                            <h2 class="post_author"></h2>
                             <div id="username__header">
                                 <span class="material-icons post__badge"> verified</span>
-                                <span id="username">@somanathg</span>
+                                <span class="username">@</span>
                             </div>
                         </div>
                     </div>
                     <div class="post__headerDescription">
-                        <h3 id="tweet_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h3>
+                        <h3 class="tweet_content"></h3>
                     </div>
                 </div>
 
@@ -117,7 +116,7 @@
                     <div class="reply_tweet" style="display: none;">
                         <textarea id="reply_message" name="reply_message" rows="2" cols="40"
                             placeholder="Tweet your reply"></textarea>
-                        <button onclick="addReply('reply')" class="tweetBox__tweetButton " type="button">Reply</button>
+                        <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
                     </div>
                 </form>
 
@@ -196,7 +195,9 @@
             </div>
         </div>
         <!-- post ends -->
+
     </div>
+
     <!-- feed ends -->
 
     <!-- widgets starts -->
