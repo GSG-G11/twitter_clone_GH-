@@ -180,6 +180,7 @@ body {
 .post__headerSpecial {
   font-weight: 600;
   font-size: 12px;
+  width: 100%;
   color: gray;
 }
 
@@ -237,4 +238,24 @@ body {
 .widgets__widgetContainer h2 {
   font-size: 18px;
   font-weight: 800;
+}
+#user__info {
+  display: flex;
+}
+
+#heart_icon {
+  width: 16px;
+  height: 16px;
+}
+#reply_icon {
+  width: 16px;
+  height: 16px;
+}
+
+#username {
+  color: #6e767d;
+}
+
+#username__header {
+  margin: 10px;
 }
