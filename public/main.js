@@ -11,12 +11,12 @@ const showReplyForm = () => {
 
 const addReply = () => {
   const replyMessage = document.querySelector('#reply_message').value;
-  fetch('/api/reply', {
+  fetch('/reply', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ reply: replyMessage }),
+    body: JSON.stringify({ id: 1, reply: replyMessage }),
   });
 };
