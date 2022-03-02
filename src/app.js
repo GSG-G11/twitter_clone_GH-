@@ -1,19 +1,31 @@
+const path = require('path');
 const express = require('express');
 const buildDb = require('./database/config/build');
 const pool = require('./database/config/connection');
 const { getUserTweets } = require('./database/queries/getUserTweet');
-const postTweet = require('./database/queries/postTweet.js');
 const getTweets = require('./database/queries/getTweets.js');
+const router = require('./controllers');
+const postTweet = require('./database/queries/postTweet.js');
 
 const app = express();
 
-// app.get('/', (req, res) => {
-//   getUserTweet(user_id)
-//     .then((results) => console.log(results))
-//     .catch('Error');
-// });
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.disable('x-powered-by');
+app.set('port', process.env.PORT || 5000);
 
-app.get('/', (req, res) => {
-  getTweets().then((result) => console.log(result.rows));
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.post('/reply', (request, response, next) => {
+  const user_id = request.body.id;
+  const reply = request.body.reply;
+  postTweet(reply, user_id)
+    .then((result) => console.log(result.rows))
+    .catch((err) => console.log(err));
 });
-app.listen(5000, console.log('http://localhost:5000'));
+
+app.listen(app.get('port'), () => {
+  console.log('Server is running successfully @ http://localhost:5000');
+});
+
+module.export = app;
