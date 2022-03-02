@@ -24,6 +24,7 @@
   "dependencies": {
     "env2": "^2.2.2",
     "express": "^4.17.3",
+    "node-fetch": "^3.2.1",
     "pg": "^8.7.3"
   },
   "devDependencies": {

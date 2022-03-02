@@ -186,7 +186,7 @@ body {
 
 .post__headerText h3 {
   font-size: 15px;
-  margin-bottom: 5px;
+  margin: 5px;
 }
 
 .post__headerDescription {
@@ -244,12 +244,12 @@ body {
 }
 
 #heart_icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 #reply_icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 #username {
@@ -258,4 +258,62 @@ body {
 
 #username__header {
   margin: 10px;
+}
+
+.post__avatar img {
+  border-radius: 50%;
+  height: 30px;
+}
+
+textarea {
+  text-align: left;
+  width: 80%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+
+#reply_content {
+  background-color: #50b7f5;
+  padding: 20px;
+  display: flex;
+  justify-content: start;
+}
+
+.reply_avatar img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+#reply_name {
+  margin-top: 2px;
+}
+
+#username_reply {
+  font-size: 16px;
+  color: #6e767d;
+}
+
+.reply_content {
+  display: block;
+}
+.replys {
+  margin-top: 20px;
+}
+
+.reply_tweet {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reply_box :hover {
+  background-color: #50b7f5;
 }
