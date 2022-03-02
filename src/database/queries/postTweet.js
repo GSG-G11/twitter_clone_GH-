@@ -1,4 +1,3 @@
-const { createBrotliCompress } = require('zlib');
 const connection = require('./../config/connection');
 
 const postTweet = () => {
