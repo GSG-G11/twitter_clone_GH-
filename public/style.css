@@ -7,6 +7,12 @@
 body {
   --twitter-color: #50b7f5;
   --twitter-background: #e6ecf0;
+  display: flex;
+  height: 100vh;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
 }
 
 .sidebarOption {
@@ -46,15 +52,6 @@ body {
   border-radius: 30px;
   height: 50px;
   margin-top: 20px;
-}
-
-body {
-  display: flex;
-  height: 100vh;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 10px;
 }
 
 .sidebar {
@@ -320,4 +317,18 @@ textarea {
 
 .posts_container {
   display: block;
+}
+.error {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error_image {
+  width: 40%;
+  height: 50%;
+}
+.errorCard {
+  margin-top: 20px;
+  color: #10587c;
 }
