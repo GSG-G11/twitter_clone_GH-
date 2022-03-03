@@ -30,7 +30,7 @@ app.get('/tweets', (req, res, next) => {
 
 app.post('/tweet', (request, response, next) => {
   const user_id = request.body.id;
-  const tweet = request.body.reply;
+  const tweet = request.body.tweet;
   postTweet(tweet, user_id)
     .then((result) => result.row)
     .catch((err) => err);
