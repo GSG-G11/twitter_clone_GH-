@@ -32,10 +32,8 @@ app.post('/tweet', (request, response, next) => {
   const user_id = request.body.id;
   const tweet = request.body.reply;
   postTweet(tweet, user_id)
-    .then((result) => console.log(result.row))
+    .then((result) => result.row)
     .catch((err) => err);
-  // Redirect to error page
-  // res.redirect(307, '/');
 });
 
 app.post('/reply', (request, response, next) => {
