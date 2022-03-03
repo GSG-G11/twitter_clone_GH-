@@ -22,10 +22,12 @@
   },
   "homepage": "https://github.com/GSG-G11/twitter_clone_GH-#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "env2": "^2.2.2",
     "express": "^4.17.3",
     "node-fetch": "^3.2.1",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "puppeteer": "^13.4.1"
   },
   "devDependencies": {
     "eslint": "^8.10.0",

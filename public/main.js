@@ -15,14 +15,11 @@ const renderTweets = () => {
   })
     .then((result) => result.json())
     .then((tweets) =>
-      console.log(
-        tweets.data.forEach((element) => {
-          console.log(element);
-          author.appendChild(document.createTextNode(element.username));
-          username.appendChild(document.createTextNode(element.username));
-          tweetContent.appendChild(document.createTextNode(element.text_content));
-        })
-      )
+      tweets.data.forEach((element) => {
+        author.appendChild(document.createTextNode(element.username));
+        username.appendChild(document.createTextNode(element.username));
+        tweetContent.appendChild(document.createTextNode(element.text_content));
+      })
     )
     .catch((err) => console.log(err));
 };

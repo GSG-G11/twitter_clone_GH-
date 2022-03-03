@@ -80,122 +80,106 @@
             </form>
         </div>
         <!-- tweetbox ends -->
+
         <!-- post starts -->
-        <div class="post">
-            <div class="post__avatar">
-                <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
-            </div>
-
-            <div class="post__body">
-                <div class="post__header">
-                    <div class="post__headerText">
-                        <div id="user__info">
-                            <h2 class="post_author"></h2>
-                            <div id="username__header">
-                                <span class="material-icons post__badge"> verified</span>
-                                <span class="username">@</span>
-                            </div>
-                        </div>
+        <div class="posts_container">
+            <div class="post" style="display: block;">
+                <div style="display: flex;">
+                    <div class="post__avatar">
+                        <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                            alt="" />
                     </div>
-                    <div class="post__headerDescription">
-                        <h3 class="tweet_content"></h3>
+                    <!-- Tweet Here -->
+                    <div style="margin-top: 10px;">
+                        <h3 class="reply_name"> Ghada Attallah</h3>
+                        <span class="username_reply">@GhadAt</span>
                     </div>
                 </div>
-
-                <div class="post__footer">
-                    <div onclick="likeTweet()"><img id="heart_icon" src="images/heart-solid (2).svg"
-                            alt="My Happy SVG" /></div>
-                    <div id="reply_box" onclick="showReplyForm()"><img id="reply_icon" src="images/reply-solid.svg"
-                            alt="My Happy SVG" />
-                    </div>
+                <div class="post__headerDescription" style="padding-left: 10px;">
+                    <h3 class="tweet_content">Hello World This is my First Tweet</h3>
                 </div>
-
                 <hr style="margin:10px">
 
                 <form>
                     <div class="reply_tweet" style="display: none;">
-                        <textarea id="reply_message" name="reply_message" rows="2" cols="40"
+                        <textarea class="reply_message" name="reply_message" rows="2" cols="40"
                             placeholder="Tweet your reply"></textarea>
                         <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
                     </div>
                 </form>
 
-                <div class="reply_content">
+                <!-- Reply  -->
+                <div class="reply_content" style="padding: 0 40px ;">
                     <div class="replys">
                         <div class="post__headerText">
-                            <div id="user__info">
+                            <div class="user__info">
                                 <div class="reply_avatar">
                                     <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
                                         alt="" />
                                 </div>
                                 <div>
-                                    <h3 id="reply_name"> Somanath Goudar</h3>
-                                    <span id="username_reply">@somanathg</span>
-                                </div>
-                                <div id="username__header">
-                                    <span class="material-icons post__badge"> verified</span>
+                                    <h3 class="reply_name"> Hani Elwan</h3>
+                                    <span class="username_reply">@hani3l1</span>
                                 </div>
                             </div>
-                            <div id="">
-                                Comment here Comment here
-                                Comment here
-                                Comment here
-
+                            <div class="">
+                                Omg I love your tweet
                             </div>
                         </div>
                     </div>
-                    <div class="replys">
-                        <div class="post__headerText">
-                            <div id="user__info">
-                                <div class="reply_avatar">
-                                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
-                                        alt="" />
-                                </div>
-                                <div>
-                                    <h3 id="reply_name"> Somanath Goudar</h3>
-                                    <span id="username_reply">@somanathg</span>
-                                </div>
-                                <div id="username__header">
-                                    <span class="material-icons post__badge"> verified</span>
-                                </div>
-                            </div>
-                            <div id="">
-                                Comment here Comment here
-                                Comment here
-                                Comment here
+                </div>
 
+            </div>
+        </div>
+        <!-- post ends -->
+
+        <div class="post" style="display: block;">
+            <div style="display: flex;">
+                <div class="post__avatar">
+                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                </div>
+                <!-- Tweet Here -->
+                <div style="margin-top: 10px;">
+                    <h3 class="reply_name"> Somanath Goudar</h3>
+                    <span class="username_reply">@somanathg</span>
+                </div>
+            </div>
+            <div class="post__headerDescription" style="padding-left: 10px;">
+                <h3 class="tweet_content">even the strongest ones get tired</h3>
+            </div>
+            <hr style="margin:10px">
+
+            <form>
+                <div class="reply_tweet" style="display: none;">
+                    <textarea class="reply_message" name="reply_message" rows="2" cols="40"
+                        placeholder="Tweet your reply"></textarea>
+                    <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
+                </div>
+            </form>
+
+            <div class="reply_content" style="padding: 0 40px ;">
+                <div class="replys">
+                    <div class="post__headerText">
+                        <div class="user__info">
+                            <div class="reply_avatar">
+                                <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                                    alt="" />
+                            </div>
+                            <div>
+                                <h3 class="reply_name"> Brett Okamoto</h3>
+                                <span class="username_reply">@Brett Okamoto</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="replys">
-
-                        <div class="post__headerText">
-                            <div id="user__info">
-                                <div class="reply_avatar">
-                                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
-                                        alt="" />
-                                </div>
-                                <div>
-                                    <h3 id="reply_name"> Somanath Goudar</h3>
-                                    <span id="username_reply">@somanathg</span>
-                                </div>
-                                <div id="username__header">
-                                    <span class="material-icons post__badge"> verified</span>
-                                </div>
-                            </div>
-                            <div id="">
-                                Comment here Comment here
-                                Comment here
-                                Comment here
-
-                            </div>
+                        <div class="" style="font-size: large;">
+                            عالجرح
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- post ends -->
-
+    </div>
+    </div>
+    <!-- post ends -->
     </div>
 
     <!-- feed ends -->
@@ -210,8 +194,20 @@
         <div class="widgets__widgetContainer">
             <h1>Trends for you</h1>
             <div style="display: flex; justify-content: space-between;margin: 10px;">
-                <p id="tweets_count">54.9k tweets</p>
-                <h2 id="trend_title">الحرب_الروسية_والاوكرانية#</h2>
+                <p class="tweets_count">54.9k tweets</p>
+                <h2 class="trend_title">الحرب_الروسية_والاوكرانية#</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">100k tweets</p>
+                <h2 class="trend_title">فلسطين#</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">22.9k tweets</p>
+                <h2 class="trend_title">#Jerusalem</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">8.9k tweets</p>
+                <h2 class="trend_title">الرياض</h2>
             </div>
         </div>
     </div>
