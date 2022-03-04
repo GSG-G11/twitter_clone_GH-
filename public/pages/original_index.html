@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/logo-twitter-png-5860.png" type="image/gif" sizes="16x16">
+
+</head>
+
+<body>
+    <!-- sidebar starts -->
+    <div class="sidebar">
+        <i class="fab fa-twitter"></i>
+        <div class="sidebarOption active">
+            <span class="material-icons"> home </span>
+            <h2>Home</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> search </span>
+            <h2>Explore</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> notifications_none </span>
+            <h2>Notifications</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> mail_outline </span>
+            <h2>Messages</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> bookmark_border </span>
+            <h2>Bookmarks</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> list_alt </span>
+            <h2>Lists</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> perm_identity </span>
+            <h2>Profile</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> more_horiz </span>
+            <h2>More</h2>
+        </div>
+        <button class="sidebar__tweet">Tweet</button>
+    </div>
+    <!-- sidebar ends -->
+
+    <!-- feed starts -->
+    <div class="feed">
+        <div class="feed__header">
+            <h2>Home</h2>
+        </div>
+
+        <!-- tweetbox starts -->
+        <div class="tweetBox">
+            <form>
+                <div class="tweetbox__input">
+                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                    <input type="text" placeholder="What's happening?" class="tweet_message" />
+                </div>
+                <button class="tweetBox__tweetButton" onclick="addTweet()">Tweet</button>
+            </form>
+        </div>
+        <!-- tweetbox ends -->
+
+        <!-- post starts -->
+        <div class="posts_container">
+            <div class="post" style="display: block;">
+                <div style="display: flex;">
+                    <div class="post__avatar">
+                        <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                            alt="" />
+                    </div>
+                    <!-- Tweet Here -->
+                    <div style="margin-top: 10px;">
+                        <h3 class="reply_name"> Ghada Attallah</h3>
+                        <span class="username_reply">@GhadAt</span>
+                    </div>
+                </div>
+                <div class="post__headerDescription" style="padding-left: 10px;">
+                    <h3 class="tweet_content">Hello World This is my First Tweet</h3>
+                </div>
+                <hr style="margin:10px">
+
+                <form>
+                    <div class="reply_tweet" style="display: none;">
+                        <textarea class="reply_message" name="reply_message" rows="2" cols="40"
+                            placeholder="Tweet your reply"></textarea>
+                        <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
+                    </div>
+                </form>
+
+                <!-- Reply  -->
+                <div class="reply_content" style="padding: 0 40px ;">
+                    <div class="replys">
+                        <div class="post__headerText">
+                            <div class="user__info">
+                                <div class="reply_avatar">
+                                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                                        alt="" />
+                                </div>
+                                <div>
+                                    <h3 class="reply_name"> Hani Elwan</h3>
+                                    <span class="username_reply">@hani3l1</span>
+                                </div>
+                            </div>
+                            <div class="">
+                                Omg I love your tweet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- post ends -->
+
+        <div class="post" style="display: block;">
+            <div style="display: flex;">
+                <div class="post__avatar">
+                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                </div>
+                <!-- Tweet Here -->
+                <div style="margin-top: 10px;">
+                    <h3 class="reply_name"> Somanath Goudar</h3>
+                    <span class="username_reply">@somanathg</span>
+                </div>
+            </div>
+            <div class="post__headerDescription" style="padding-left: 10px;">
+                <h3 class="tweet_content">even the strongest ones get tired</h3>
+            </div>
+            <hr style="margin:10px">
+
+            <form>
+                <div class="reply_tweet" style="display: none;">
+                    <textarea class="reply_message" name="reply_message" rows="2" cols="40"
+                        placeholder="Tweet your reply"></textarea>
+                    <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
+                </div>
+            </form>
+
+            <div class="reply_content" style="padding: 0 40px ;">
+                <div class="replys">
+                    <div class="post__headerText">
+                        <div class="user__info">
+                            <div class="reply_avatar">
+                                <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
+                                    alt="" />
+                            </div>
+                            <div>
+                                <h3 class="reply_name"> Brett Okamoto</h3>
+                                <span class="username_reply">@Brett Okamoto</span>
+                            </div>
+                        </div>
+                        <div class="" style="font-size: large;">
+                            عالجرح
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- post ends -->
+    </div>
+
+    <!-- feed ends -->
+
+    <!-- widgets starts -->
+    <div class="widgets">
+        <div class="widgets__input">
+            <span class="material-icons widgets__searchIcon"> search </span>
+            <input type="text" placeholder="Search Twitter" />
+        </div>
+
+        <div class="widgets__widgetContainer">
+            <h1>Trends for you</h1>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">54.9k tweets</p>
+                <h2 class="trend_title">الحرب_الروسية_والاوكرانية#</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">100k tweets</p>
+                <h2 class="trend_title">فلسطين#</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">22.9k tweets</p>
+                <h2 class="trend_title">#Jerusalem</h2>
+            </div>
+            <div style="display: flex; justify-content: space-between;margin: 10px;">
+                <p class="tweets_count">8.9k tweets</p>
+                <h2 class="trend_title">الرياض</h2>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
