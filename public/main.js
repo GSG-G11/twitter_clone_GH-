@@ -20,30 +20,35 @@ const renderTweets = () => {
     .then((tweets) =>
       tweets.data.forEach((element) => {
         const tweet = document.createElement('div');
-        const header = document.createElement('div');
-        const nameContainer = document.createElement('div');
-        const iconsContainer = document.createElement('div');
-        const profileImg = document.createElement('img');
-        const name = document.createElement('p');
-        const username = document.createElement('p');
-        const tweetText = document.createElement('h3');
-        const heart = document.createElement('img');
-        const reply = document.createElement('img');
-
         tweet.classList.add('tweet');
+        const profile = document.createElement('div');
+        profile.classList.add('profile');
+        const profileImg = document.createElement('img');
         profileImg.src =
           'https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png';
         profileImg.classList.add('profile_img');
-        tweet.appendChild(profileImg); // append Image to tweet
-        header.classList.add('tweet_name');
-        nameContainer.classList.add('tweet_header');
+        const header = document.createElement('div');
+        header.classList.add('tweet_header');
+        const nameContainer = document.createElement('div');
+        nameContainer.classList.add('tweet_name');
+        const name = document.createElement('p');
         name.textContent = element.name; // append user name
+        const username = document.createElement('p');
         username.textContent = '@' + element.username; // append username
         nameContainer.appendChild(name);
         nameContainer.appendChild(username);
+        const tweetText = document.createElement('h3');
         tweetText.textContent = element.tweet; // append tweet
-        nameContainer.appendChild(tweetText);
-        tweet.appendChild(nameContainer);
+        header.appendChild(nameContainer);
+        header.appendChild(tweetText);
+        profile.appendChild(profileImg);
+        profile.appendChild(header);
+        tweet.appendChild(profile);
+        const iconsContainer = document.createElement('div');
+        const heart = document.createElement('img');
+        const reply = document.createElement('img');
+        nameContainer.appendChild(name);
+        nameContainer.appendChild(username);
         iconsContainer.classList.add('tweet_icons');
         heart.src = 'images/heart-solid (2).svg';
         heart.height = '20px';
