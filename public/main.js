@@ -60,6 +60,13 @@ const renderTweets = () => {
         iconsContainer.appendChild(reply);
         tweet.appendChild(iconsContainer);
         tweetsContainer.appendChild(tweet);
+
+        // const createElement = (tag, classname, parent) => {
+        //   const item = document.createElement(tag);
+        //   item.className = classname;
+        //   parent.appendChild(item);
+        //   return item;
+        // };
       })
     )
 
