@@ -315,8 +315,13 @@ textarea {
   justify-content: space-between;
 }
 
-#reply_box :hover {
+.reply_box {
+  border-radius: 10px;
   background-color: #50b7f5;
+}
+.heart_box {
+  border-radius: 10px;
+  background-color: #e65e5e9d;
 }
 
 .posts_container {
@@ -338,14 +343,13 @@ textarea {
 }
 
 .tweets_container {
-  background-color: #50b7f5;
 }
 .tweet {
   display: flex;
   flex-direction: column;
   justify-content: start;
   padding: 20px;
-  border: 1px solid rgb(167, 163, 163);
+  border: 0.01px solid rgb(199 199 199);
 }
 
 .tweet_header {
