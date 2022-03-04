@@ -3,9 +3,16 @@ const replyButton = document.querySelector('.reply_button');
 const author = document.querySelector('.post_author');
 const username = document.querySelector('.username');
 const tweetContent = document.querySelector('.tweet_content');
+const selectUser = document.querySelector('.switch_user');
+const loggedUser = localStorage.getItem('user_id');
 
 window.onload = () => {
   renderTweets();
+};
+
+const switchUser = () => {
+  localStorage.setItem('user_id', selectUser.value); //Store id in local storage
+  window.location.href = '/';
 };
 
 const renderTweets = () => {
@@ -82,7 +89,7 @@ const addTweet = () => {
       'Content-Type': 'application/json',
     },
     // Change Id Here To be user.id
-    body: JSON.stringify({ id: 1, tweet: tweetMessage }),
+    body: JSON.stringify({ id: loggedUser, tweet: tweetMessage }),
   });
 };
 
@@ -131,39 +138,3 @@ window.onclick = function (event) {
     modal.style.display = 'none';
   }
 };
-
-// const tweet = document.createElement('div');
-//         tweet.classList.add('tweet');
-//         const profileImg = document.createElement('img');
-//         profileImg.src =
-//           'https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png';
-//         profileImg.classList.add('profile_img');
-//         tweet.appendChild(profileImg); // append Image to tweet
-//         const header = document.createElement('div');
-//         header.classList.add('tweet_name');
-//         const nameContainer = document.createElement('div');
-//         nameContainer.classList.add('tweet_header');
-//         const name = document.createElement('p');
-//         name.textContent = element.name; // append user name
-//         const username = document.createElement('p');
-//         username.textContent = '@' + element.username; // append username
-//         nameContainer.appendChild(name);
-//         nameContainer.appendChild(username);
-//         const tweetText = document.createElement('h3');
-//         tweetText.textContent = element.tweet; // append tweet
-//         nameContainer.appendChild(tweetText);
-//         tweet.appendChild(nameContainer);
-//         const iconsContainer = document.createElement('div');
-//         iconsContainer.classList.add('tweet_icons');
-//         const heart = document.createElement('img');
-//         heart.src = 'images/heart-solid (2).svg';
-//         heart.height = '20px';
-//         heart.width = '20px';
-//         const reply = document.createElement('img');
-//         reply.src = 'images/reply-solid.svg';
-//         reply.height = '20px';
-//         reply.width = '20px';
-//         iconsContainer.appendChild(heart);
-//         iconsContainer.appendChild(reply);
-//         tweet.appendChild(iconsContainer);
-//         tweetsContainer.appendChild(tweet);
