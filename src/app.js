@@ -1,13 +1,7 @@
 const path = require('path');
 const express = require('express');
-const buildDb = require('./database/config/build');
-const pool = require('./database/config/connection');
-const { getUserTweets } = require('./database/queries/getUserTweet');
-const getTweets = require('./database/queries/getTweets.js');
-const router = require('./controllers');
-const postTweet = require('./database/queries/postTweet.js');
-const postReply = require('./database/queries/postReply');
-const connection = require('./database/config/connection');
+const getTweets = require('./database/queries/getTweets');
+const postTweet = require('./database/queries/postTweet');
 
 const app = express();
 
@@ -15,6 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.disable('x-powered-by');
 app.set('port', process.env.PORT || 5000);
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/tweets', (req, res, next) => {
   getTweets()
@@ -28,28 +24,31 @@ app.get('/tweets', (req, res, next) => {
     .catch(next);
 });
 
-app.post('/tweet', (request, response, next) => {
-  const user_id = request.body.id;
-  const tweet = request.body.tweet;
-  postTweet(tweet, user_id)
-    .then((result) => result.row)
-    .catch((err) => err);
+app.post('/api/tweet', (req, res, next) => {
+  const user_id = req.body.id;
+  const tweet = req.body.tweet;
+  postTweet(tweet, user_id);
 });
 
-app.post('/reply', (request, response, next) => {
-  const user_id = request.body.id;
-  const reply = request.body.reply;
-  postReply(reply, user_id, 1)
-    .then((result) => result.rows)
-    .catch((err) => err);
-  // Redirect to error page
-  res.redirect(307, '/');
-});
+// app.post('/reply', (request, response, next) => {
+//   const user_id = request.body.id;
+//   const tweet = request.body.reply;
 
-app.use(express.static(path.join(__dirname, '..', 'public')));
+//   postReply(tweet, user_id, 1);
+//   // Redirect to error page
+// });
 
 app.listen(app.get('port'), () => {
   console.log('Server is running successfully @ http://localhost:5000');
 });
+
+// handleErrors = (res) => {
+//   if (res) {
+//     res.redirect(
+//       path.join(__dirname, '..', 'public', 'pages', 'error_pages', '500.html')
+//     );
+//   }
+//   return response;
+// };
 
 module.export = app;

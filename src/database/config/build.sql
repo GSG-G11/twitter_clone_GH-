@@ -4,17 +4,18 @@ DROP TABLE IF EXISTS users,tweets,replys CASCADE;
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
 username VARCHAR(50) NOT NULL UNIQUE);
 
-INSERT INTO users (username) VALUES ('Hani3l1'),('GhadaAt');
+INSERT INTO users (name,username) VALUES ('Hani Elwan','Hani3l1'),('Ghada Attallah','GhadaAt');
 
 -- Create Tweet Table;
 CREATE TABLE tweets (id SERIAL PRIMARY KEY,
-text_content TEXT NOT NULL,
+tweet TEXT NOT NULL,
 user_id INT NOT NULL,
 FOREIGN KEY (user_id) REFERENCES users(id));
 
-INSERT INTO tweets (text_content,user_id) VALUES('First Tweet', 1),('Second Tweet', 2);
+INSERT INTO tweets (tweet,user_id) VALUES('First Tweet', 1),('Second Tweet', 2);
 
 -- Create Replys Table;
 CREATE TABLE replys (id SERIAL PRIMARY KEY,reply_content TEXT NOT NULL, user_id INT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id), tweet_id INT NOT NULL, FOREIGN KEY (tweet_id) REFERENCES tweets(id));

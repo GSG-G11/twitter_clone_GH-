@@ -1,10 +1,8 @@
 const connection = require('./../config/connection');
 
-const postTweet = (tweet_text, user_id) => {
-  const data = [tweet_text, user_id];
-  const sql =
-    'INSERT INTO tweets (text_content,user_id) VALUES($1, $2) RETURNING id,text_content,user_id;';
+const postTweet = (tweet, user_id) => {
+  const data = [tweet, user_id];
+  const sql = 'INSERT INTO tweets (tweet,user_id) VALUES($1, $2) RETURNING *;';
   return connection.query(sql, data);
 };
-
 module.exports = postTweet;
