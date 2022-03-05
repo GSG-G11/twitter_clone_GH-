@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const getTweets = require('./database/queries/getTweets');
 const postTweet = require('./database/queries/postTweet');
+const deleteTweet = require('./database/queries/deleteTweet');
 
 const app = express();
 
@@ -28,6 +29,18 @@ app.post('/api/tweet', (req, res, next) => {
   const user_id = req.body.id;
   const tweet = req.body.tweet;
   postTweet(tweet, user_id);
+});
+
+app.post('/api/delete/:id', (req, res) => {
+  const { id } = req.params;
+  deleteTweet(id)
+    .then((results) =>
+      res.json({
+        status: 200,
+        msg: 'success',
+      })
+    )
+    .catch(console.log('SORRY IT DIDNT WORK'));
 });
 
 // app.post('/reply', (request, response, next) => {

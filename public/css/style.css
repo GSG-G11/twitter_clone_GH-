@@ -398,7 +398,8 @@ textarea {
 }
 .tweet_icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  padding: 10px;
 }
 .profile {
   display: flex;
@@ -421,4 +422,24 @@ textarea {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.dropdown_tweet:hover .dropdown-content {
+  display: block;
+}
+
+.heart_button {
+  margin-right: 10px;
+}
+.dropdown_tweet {
+  display: flex;
+  justify-content: end;
+}
+.dropdown_content {
+  display: flex;
+  justify-content: end;
+}
+
+.tweets_icons {
+  height: 16px;
+  width: 16px;
 }
