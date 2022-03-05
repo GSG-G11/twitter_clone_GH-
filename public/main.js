@@ -8,6 +8,15 @@ const loggedUser = localStorage.getItem('user_id');
 
 window.onload = () => {
   renderTweets();
+  toggleDisplay();
+};
+
+const toggleDisplay = () => {
+  const tweets = document.querySelectorAll('.tweet');
+  console.log(tweets);
+  // for (var i = 0; i < tweets.length; i++) {
+  //   tweets[i].style.display = 'none'; //second console output
+  // }
 };
 
 const switchUser = () => {
@@ -35,32 +44,30 @@ const renderTweets = () => {
         dropdown.classList.add('dropdown');
         dropdown.style.display = 'flex';
         dropdown.style.justifyContent = 'end';
-        if (tweet.getAttribute('author') === loggedUser) {
-          const ellips = document.createElement('img');
-          ellips.src = 'images/ellipsis-solid.svg';
-          ellips.classList.add('tweets_icons');
-          dropdown.appendChild(ellips);
-          const dropContent = document.createElement('div');
-          dropContent.classList.add('dropdown-content');
-          const deleteButton = document.createElement('button');
-          deleteButton.setAttribute('tweet_id', element.id); //Change This to parent node
-          deleteButton.setAttribute('onclick', 'deleteTweet(this)');
-          const deleteIcon = document.createElement('img');
-          deleteIcon.src = 'images/trash-solid.svg';
-          deleteIcon.classList.add('tweets_icons');
-          deleteButton.appendChild(deleteIcon);
-          const editButton = document.createElement('button');
-          editButton.setAttribute('onclick', 'editTweet(this)');
-          const editIcon = document.createElement('img');
-          editIcon.src = 'images/pen-to-square-solid.svg';
-          editIcon.classList.add('tweets_icons');
-          editButton.appendChild(editIcon);
-          dropContent.appendChild(deleteButton);
-          dropContent.appendChild(editButton);
-          dropdown_tweet.appendChild(dropdown);
-          dropdown.appendChild(dropContent);
-          tweet.appendChild(dropdown_tweet);
-        }
+        const ellips = document.createElement('img');
+        ellips.src = 'images/ellipsis-solid.svg';
+        ellips.classList.add('tweets_icons');
+        dropdown.appendChild(ellips);
+        const dropContent = document.createElement('div');
+        dropContent.classList.add('dropdown-content');
+        const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('tweet_id', element.id); //Change This to parent node
+        deleteButton.setAttribute('onclick', 'deleteTweet(this)');
+        const deleteIcon = document.createElement('img');
+        deleteIcon.src = 'images/trash-solid.svg';
+        deleteIcon.classList.add('tweets_icons');
+        deleteButton.appendChild(deleteIcon);
+        const editButton = document.createElement('button');
+        editButton.setAttribute('onclick', 'editTweet(this)');
+        const editIcon = document.createElement('img');
+        editIcon.src = 'images/pen-to-square-solid.svg';
+        editIcon.classList.add('tweets_icons');
+        editButton.appendChild(editIcon);
+        dropContent.appendChild(deleteButton);
+        dropContent.appendChild(editButton);
+        dropdown_tweet.appendChild(dropdown);
+        dropdown.appendChild(dropContent);
+        tweet.appendChild(dropdown_tweet);
         const profile = document.createElement('div');
         profile.classList.add('profile');
         const profileImg = document.createElement('img');
@@ -196,13 +203,13 @@ const showModal = () => {
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = 'none';
-};
+// span.onclick = function () {
+//   modal.style.display = 'none';
+// };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
-};
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = 'none';
+//   }
+// };
