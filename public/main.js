@@ -27,6 +27,7 @@ const renderTweets = () => {
     .then((tweets) =>
       tweets.data.forEach((element) => {
         const tweet = document.createElement('div');
+        tweet.setAttribute('author', loggedUser);
         tweet.classList.add('tweet');
         const dropdown_tweet = document.createElement('div');
         dropdown_tweet.classList.add('dropdown_tweet');
@@ -34,30 +35,32 @@ const renderTweets = () => {
         dropdown.classList.add('dropdown');
         dropdown.style.display = 'flex';
         dropdown.style.justifyContent = 'end';
-        const ellips = document.createElement('img');
-        ellips.src = 'images/ellipsis-solid.svg';
-        ellips.classList.add('tweets_icons');
-        dropdown.appendChild(ellips);
-        const dropContent = document.createElement('div');
-        dropContent.classList.add('dropdown-content');
-        const deleteButton = document.createElement('button');
-        deleteButton.setAttribute('tweet_id', element.id); //Change This to parent node
-        deleteButton.setAttribute('onclick', 'deleteTweet(this)');
-        const deleteIcon = document.createElement('img');
-        deleteIcon.src = 'images/trash-solid.svg';
-        deleteIcon.classList.add('tweets_icons');
-        deleteButton.appendChild(deleteIcon);
-        const editButton = document.createElement('button');
-        editButton.setAttribute('onclick', 'editTweet(this)');
-        const editIcon = document.createElement('img');
-        editIcon.src = 'images/pen-to-square-solid.svg';
-        editIcon.classList.add('tweets_icons');
-        editButton.appendChild(editIcon);
-        dropContent.appendChild(deleteButton);
-        dropContent.appendChild(editButton);
-        dropdown_tweet.appendChild(dropdown);
-        dropdown.appendChild(dropContent);
-        tweet.appendChild(dropdown_tweet);
+        if (tweet.getAttribute('author') === loggedUser) {
+          const ellips = document.createElement('img');
+          ellips.src = 'images/ellipsis-solid.svg';
+          ellips.classList.add('tweets_icons');
+          dropdown.appendChild(ellips);
+          const dropContent = document.createElement('div');
+          dropContent.classList.add('dropdown-content');
+          const deleteButton = document.createElement('button');
+          deleteButton.setAttribute('tweet_id', element.id); //Change This to parent node
+          deleteButton.setAttribute('onclick', 'deleteTweet(this)');
+          const deleteIcon = document.createElement('img');
+          deleteIcon.src = 'images/trash-solid.svg';
+          deleteIcon.classList.add('tweets_icons');
+          deleteButton.appendChild(deleteIcon);
+          const editButton = document.createElement('button');
+          editButton.setAttribute('onclick', 'editTweet(this)');
+          const editIcon = document.createElement('img');
+          editIcon.src = 'images/pen-to-square-solid.svg';
+          editIcon.classList.add('tweets_icons');
+          editButton.appendChild(editIcon);
+          dropContent.appendChild(deleteButton);
+          dropContent.appendChild(editButton);
+          dropdown_tweet.appendChild(dropdown);
+          dropdown.appendChild(dropContent);
+          tweet.appendChild(dropdown_tweet);
+        }
         const profile = document.createElement('div');
         profile.classList.add('profile');
         const profileImg = document.createElement('img');
