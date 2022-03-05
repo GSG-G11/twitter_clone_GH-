@@ -1,8 +1,8 @@
-const replyForm = document.querySelector('.reply_tweet');
-const replyButton = document.querySelector('.reply_button');
-const author = document.querySelector('.post_author');
-const username = document.querySelector('.username');
-const tweetContent = document.querySelector('.tweet_content');
+// const replyForm = document.querySelector('.reply_tweet');
+// const replyButton = document.querySelector('.reply_button');
+// const author = document.querySelector('.post_author');
+// const username = document.querySelector('.username');
+// const tweetContent = document.querySelector('.tweet_content');
 const selectUser = document.querySelector('.switch_user');
 const loggedUser = localStorage.getItem('user_id');
 
@@ -60,12 +60,17 @@ const renderTweets = () => {
         heart.src = 'images/heart-solid (2).svg';
         heart.style.height = '16px';
         heart.style.width = '16px';
+        heart.setAttribute('tweet_number', 1);
         reply.src = 'images/reply-solid.svg';
         reply.style.height = '16px';
         reply.style.width = '16px';
+        reply.setAttribute('tweet_id', element.id); //Change This to parent node
+        reply.setAttribute('onclick', 'deleteTweet(this)');
         iconsContainer.appendChild(heart);
         iconsContainer.appendChild(reply);
         tweet.appendChild(iconsContainer);
+        tweet.setAttribute('tweet_id', element.id);
+        // console.log(element);
         tweetsContainer.appendChild(tweet);
 
         // const createElement = (tag, classname, parent) => {
@@ -80,6 +85,9 @@ const renderTweets = () => {
     .catch((err) => console.log(err));
 };
 
+const replyTweet = (element) => {
+  console.log(element);
+};
 const addTweet = () => {
   const tweetMessage = document.querySelector('.tweet_message').value;
   fetch('/api/tweet', {
@@ -91,6 +99,19 @@ const addTweet = () => {
     // Change Id Here To be user.id
     body: JSON.stringify({ id: loggedUser, tweet: tweetMessage }),
   });
+};
+
+const deleteTweet = (element) => {
+  const id = element.getAttribute('tweet_id');
+  const options = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ tweet_id: id }),
+  };
+  fetch(`/api/delete/${id}`, options);
 };
 
 // const showReplyForm = () => {
@@ -117,13 +138,23 @@ const addTweet = () => {
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById('myBtn');
+
+const reply_button = document.querySelector('.tweet_number');
+// this renders for every post
+// every reply button has .tweet_number class
+// whenever i console reply_button it returns null which means it didn't select
+// maybe because it searches for it before rendering idk pls help
+
+// reply_button.forEach((ele) => {
+//   console.log(ele);
+// });
+// console.log(reply_button.getAttribute('tweet_number'));
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName('close')[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function () {
+const showModal = () => {
   modal.style.display = 'block';
 };
 

@@ -398,7 +398,8 @@ textarea {
 }
 .tweet_icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  padding: 10px;
 }
 .profile {
   display: flex;
