@@ -31,24 +31,19 @@ app.post('/api/tweet', (req, res, next) => {
   postTweet(tweet, user_id);
 });
 
-// app.post('/api/delete', (req, res) => {
-//   // const tweet_id = req.body.tweet_id;
-//   console.log('POST TO URL');
-//   // deleteTweet(tweet_id).then('Great Tweet Deleted Successfully');
-// });
 app.post('/api/delete/:id', (req, res) => {
+  console.log(req.params.id);
   const { id } = req.params;
-  deleteTweet(id).catch(console.log('SORRY IT DIDNT WORK'));
+  deleteTweet(id)
+    .then((results) =>
+      res.json({
+        status: 200,
+        msg: 'success',
+      })
+    )
+    .catch(console.log('SORRY IT DIDNT WORK'));
 });
 
-// app.get('/api/delete/:id', (req, res) => {
-// });
-
-// app.delete('/api/delete', (req, res) => {
-//   // const tweet_id = req.body.tweet_id;
-//   console.log('Congrats Deleted Tweet Successfully');
-//   // deleteTweet(tweet_id).then('Great Tweet Deleted Successfully');
-// });
 // app.post('/reply', (request, response, next) => {
 //   const user_id = request.body.id;
 //   const tweet = request.body.reply;
