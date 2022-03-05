@@ -28,6 +28,36 @@ const renderTweets = () => {
       tweets.data.forEach((element) => {
         const tweet = document.createElement('div');
         tweet.classList.add('tweet');
+        const dropdown_tweet = document.createElement('div');
+        dropdown_tweet.classList.add('dropdown_tweet');
+        const dropdown = document.createElement('div');
+        dropdown.classList.add('dropdown');
+        dropdown.style.display = 'flex';
+        dropdown.style.justifyContent = 'end';
+        const ellips = document.createElement('img');
+        ellips.src = 'images/ellipsis-solid.svg';
+        ellips.classList.add('tweets_icons');
+        dropdown.appendChild(ellips);
+        const dropContent = document.createElement('div');
+        dropContent.classList.add('dropdown-content');
+        const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('tweet_id', element.id); //Change This to parent node
+        deleteButton.setAttribute('onclick', 'deleteTweet(this)');
+        const deleteIcon = document.createElement('img');
+        deleteIcon.src = 'images/trash-solid.svg';
+        deleteIcon.classList.add('tweets_icons');
+        deleteButton.appendChild(deleteIcon);
+        const editButton = document.createElement('button');
+        editButton.setAttribute('onclick', 'editTweet(this)');
+        const editIcon = document.createElement('img');
+        editIcon.src = 'images/pen-to-square-solid.svg';
+        editIcon.classList.add('tweets_icons');
+        editButton.appendChild(editIcon);
+        dropContent.appendChild(deleteButton);
+        dropContent.appendChild(editButton);
+        dropdown_tweet.appendChild(dropdown);
+        dropdown.appendChild(dropContent);
+        tweet.appendChild(dropdown_tweet);
         const profile = document.createElement('div');
         profile.classList.add('profile');
         const profileImg = document.createElement('img');
@@ -53,7 +83,10 @@ const renderTweets = () => {
         tweet.appendChild(profile);
         const iconsContainer = document.createElement('div');
         iconsContainer.classList.add('tweet_icons');
+        const heartButton = document.createElement('button');
+        heartButton.classList.add('heart_button');
         const heart = document.createElement('img');
+        const replyButton = document.createElement('button');
         const reply = document.createElement('img');
         reply.classList.add('reply_box');
         heart.classList.add('heart_box');
@@ -64,10 +97,10 @@ const renderTweets = () => {
         reply.src = 'images/reply-solid.svg';
         reply.style.height = '16px';
         reply.style.width = '16px';
-        reply.setAttribute('tweet_id', element.id); //Change This to parent node
-        reply.setAttribute('onclick', 'deleteTweet(this)');
-        iconsContainer.appendChild(heart);
-        iconsContainer.appendChild(reply);
+        heartButton.appendChild(heart);
+        replyButton.appendChild(reply);
+        iconsContainer.appendChild(heartButton);
+        iconsContainer.appendChild(replyButton);
         tweet.appendChild(iconsContainer);
         tweet.setAttribute('tweet_id', element.id);
         // console.log(element);
@@ -112,6 +145,7 @@ const deleteTweet = (element) => {
     body: JSON.stringify({ tweet_id: id }),
   };
   fetch(`/api/delete/${id}`, options);
+  window.location.href = '/';
 };
 
 // const showReplyForm = () => {

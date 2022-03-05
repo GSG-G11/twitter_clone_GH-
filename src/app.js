@@ -32,7 +32,6 @@ app.post('/api/tweet', (req, res, next) => {
 });
 
 app.post('/api/delete/:id', (req, res) => {
-  console.log(req.params.id);
   const { id } = req.params;
   deleteTweet(id)
     .then((results) =>
