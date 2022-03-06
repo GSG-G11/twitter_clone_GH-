@@ -1,6 +1,5 @@
 const errorPopup = document.querySelector('.alert');
 const errorMessage = document.querySelector('#error_Message');
-let message;
 
 window.onload = () => {
   login_error();

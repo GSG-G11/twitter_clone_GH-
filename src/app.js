@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const getTweets = require('./database/queries/getTweets');
@@ -64,12 +65,14 @@ app.post('/login', (req, res) => {
         ? res
             .cookie('error', 'Incorrect username or password')
             .redirect('/?e=' + encodeURIComponent('Incorrect username or password'))
-        : 'user exists'
+        : res
+            .cookie('success', `Welcome back! ${user.rows[0].name}`, { maxAge: 1000 })
+            .redirect('/test')
     );
+});
 
-  // res.send('User not found ');
-  // loginUser();
-  // console.log('Congrats youre in login page');
+app.get('/test', (req, res) => {
+  res.sendFile(path.join(__dirname, './../public/test.html'));
 });
 
 app.listen(app.get('port'), () => {

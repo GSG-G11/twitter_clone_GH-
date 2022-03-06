@@ -16,31 +16,10 @@
 </head>
 
 <body>
-    <div class="alert" style="display: none;">
-        <strong>Error! </strong><span id="error_Message"></span>
+    <div class="alert" style="">
+        <strong>Error! </strong><span id="error_Message"> Hello this is success message</span>
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     </div>
-    <form class="login_form" action="/login" method="POST">
-        <div class="imgcontainer">
-            <i class="fab fa-twitter"></i>
-        </div>
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" minlength="5" required>
-
-            <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked"> Remember me
-            </label>
-
-
-        </div>
-    </form>
-
-    <script src="login.js"></script>
 </body>
 
 </html>
