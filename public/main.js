@@ -9,6 +9,12 @@ const loggedUser = localStorage.getItem('user_id');
 window.onload = () => {
   renderTweets();
   toggleDisplay();
+  loginError();
+};
+
+const loginError = () => {
+  let error = document.cookie;
+  console.log(error);
 };
 
 const toggleDisplay = () => {

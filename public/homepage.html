@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/logo-twitter-png-5860.png" type="image/gif" sizes="16x16">
+
+</head>
+
+<body>
+    <!-- sidebar starts -->
+    <div class="sidebar">
+
+        <i class="fab fa-twitter"></i>
+        <div class="dropdown">
+            <i class='fas fa-user-alt' style='font-size:24px'></i>
+            <div class="dropdown-content">
+                <h3>Switch user</h3>
+                <select name="user" class="switch_user">
+                    <option value="1">Hani Elwan</option>
+                    <option value="2">Ghada Attallah</option>
+                </select>
+                <button onclick="switchUser()">change</button>
+            </div>
+        </div>
+
+
+        <div class="sidebarOption active">
+            <span class="material-icons"> home </span>
+            <h2>Home</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> search </span>
+            <h2>Explore</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> notifications_none </span>
+            <h2>Notifications</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> mail_outline </span>
+            <h2>Messages</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> bookmark_border </span>
+            <h2>Bookmarks</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> list_alt </span>
+            <h2>Lists</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> perm_identity </span>
+            <h2>Profile</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-icons"> more_horiz </span>
+            <h2>More</h2>
+        </div>
+        <button class="sidebar__tweet">Tweet</button>
+    </div>
+    <!-- sidebar ends -->
+
+    <!-- feed starts -->
+    <div class="feed">
+        <div class="feed__header">
+            <h2>Home</h2>
+        </div>
+
+        <!-- tweetbox starts -->
+        <div class="tweetBox">
+            <form>
+                <div class="tweetbox__input">
+                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                    <input type="text" placeholder="What's happening?" class="tweet_message" />
+                </div>
+                <button class="tweetBox__tweetButton" onclick="addTweet()">Tweet</button>
+            </form>
+        </div>
+        <!-- tweetbox ends -->
+
+        <!-- post starts -->
+        <div class="tweets_container">
+
+            <!-- <div class="tweet">
+                <div class="profile">
+                    <img class="profile_img"
+                        src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                    <div class="tweet_header">
+                        <div class="tweet_name">
+                            <p>Hani Elwan</p>
+                            <p>@Hani3l</p>
+                        </div>
+                        <h3>
+                            This is my first tweet
+                        </h3>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                <div class="tweet_icons">
+                    <img src="images/heart-solid (2).svg" height="20px" width="20px" alt="My Happy SVG" />
+                    <img src="images/reply-solid.svg" height="20px" width="20px" alt="My Happy SVG" />
+                </div>
+            </div> -->
+
+
+            <!-- <div id="myModal" class="modal">
+                <form>
+                    <div class="reply_tweet">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div style="display: flex;justify-content: center;">
+                                <textarea class="reply_message" name="reply_message" rows="2" cols="40"
+                                    placeholder="Tweet your reply"></textarea>
+                                <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div> -->
+
+            <!-- <div class="reply_tweet" style="display: none;">
+                    <textarea class="reply_message" name="reply_message" rows="2" cols="40"
+                        placeholder="Tweet your reply"></textarea>
+                    <button onclick="addReply()" class="tweetBox__tweetButton " type="button">Reply</button>
+                </div> -->
+
+            <!-- <button id="myBtn">Open Modal</button> -->
+
+        </div>
+
+        <script src="main.js"></script>
+</body>
+
+</html>

@@ -5,9 +5,11 @@ DROP TABLE IF EXISTS users,tweets,replys CASCADE;
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 name VARCHAR(50) NOT NULL,
-username VARCHAR(50) NOT NULL UNIQUE);
+username VARCHAR(50) NOT NULL UNIQUE,
+password VARCHAR(50) NOT NULL
+);
 
-INSERT INTO users (name,username) VALUES ('Hani Elwan','Hani3l1'),('Ghada Attallah','GhadaAt');
+INSERT INTO users (name,username,password) VALUES ('Hani Elwan','Hani3l1','qwerty'),('Ghada Attallah','GhadaAt','qwerty');
 
 -- Create Tweet Table;
 CREATE TABLE tweets (id SERIAL PRIMARY KEY,

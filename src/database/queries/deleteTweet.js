@@ -6,4 +6,5 @@ const deleteTweet = (tweet_id) => {
   return connection.query(sql, id);
 };
 
+console.log('Hello there');
 module.exports = deleteTweet;

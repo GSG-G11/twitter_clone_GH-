@@ -1,13 +1,16 @@
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const getTweets = require('./database/queries/getTweets');
 const postTweet = require('./database/queries/postTweet');
 const deleteTweet = require('./database/queries/deleteTweet');
+const loginUser = require('./database/queries/loginUserQuery');
 
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 app.disable('x-powered-by');
 app.set('port', process.env.PORT || 5000);
 
@@ -51,17 +54,26 @@ app.post('/api/delete/:id', (req, res) => {
 //   // Redirect to error page
 // });
 
+app.post('/login', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  loginUser(username)
+    .then((result) => result)
+    .then((user) =>
+      user.rows.length === 0
+        ? res
+            .cookie('error', 'Incorrect username or password')
+            .redirect('/?e=' + encodeURIComponent('Incorrect username or password'))
+        : 'user exists'
+    );
+
+  // res.send('User not found ');
+  // loginUser();
+  // console.log('Congrats youre in login page');
+});
+
 app.listen(app.get('port'), () => {
   console.log('Server is running successfully @ http://localhost:5000');
 });
-
-// handleErrors = (res) => {
-//   if (res) {
-//     res.redirect(
-//       path.join(__dirname, '..', 'public', 'pages', 'error_pages', '500.html')
-//     );
-//   }
-//   return response;
-// };
 
 module.export = app;
